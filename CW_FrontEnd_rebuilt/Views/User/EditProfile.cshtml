@@ -1,0 +1,64 @@
+﻿@model CW_FrontEnd_rebuilt.ObjectModel.User;
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+<body class="text-center" data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed="">
+    
+<main class="form-signin w-100 m-auto">
+  <form asp-controller="UserApi" asp-action="Post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <label asp-for="userName" for="floatingInput"></label>
+      <input asp-for="userName"  class="form-control"value="@Model.userName" placeholder=@Model.userName>
+      <span asp-validation-for="userName" class="text-danger"></span>
+    </div>
+    
+    <div class="form-floating">
+      <label asp-for="bio" for="floatingInput"></label>
+      <input asp-for="bio" class="form-control"value="@Model.bio" placeholder="@Model.bio>
+      <span asp-validation-for="bio" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating">
+      <label asp-for="password" for="floatingPassword"></label>
+      <input asp-for="password" name="Password" type="text" class="form-control" value="@Model.password" placeholder=@Model.password>
+      <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+    <div class="form-floating">
+      <label asp-for="imageLink" for="floatingPassword"></label>
+      <input asp-for="imageLink" name="ImageLink" type="text" class="form-control" value="@Model.imageLink" placeholder=@Model.imageLink>
+      <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+   <div class="form-floating">
+      <label asp-for="role" for="floatingPassword"></label>
+      <input asp-for="role" name="Role" readonly="readonly" type="text" class="form-control" value="@Model.role">
+    </div>
+    <div class="form-floating">
+      <label asp-for="characters" for="floatingPassword"></label>
+      <input asp-for="characters" name="Role" readonly="readonly"  class="form-control" value="@Model.characters">
+    </div>
+     <div class="form-floating">
+      <label asp-for="userId" for="floatingPassword"></label>
+      <input asp-for="userId" name="UserId" type="number" readonly="readonly" class="form-control" value="@Model.userId" >
+      <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+    <p class="mt-5 mb-3 text-muted">©2022</p>
+  </form>
+</main>
+
+
+</body>
+</html>
+

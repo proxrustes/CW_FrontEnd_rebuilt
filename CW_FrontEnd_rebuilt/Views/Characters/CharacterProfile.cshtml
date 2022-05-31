@@ -1,0 +1,66 @@
+﻿@model CW_FrontEnd_rebuilt.ObjectModel.Character
+@{
+    ViewData["Title"] = "Add Character";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+<body class="text-center" data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed="">
+    
+    <div class="row py-5 px-4">
+        <div class="col-md-5 mx-auto"> 
+            <div class="bg-white shadow rounded overflow-hidden"> 
+
+                <div class="px-4 py-5 my-5 text-center">
+    <img class="rounded-circle" src=@Model.imageLink alt="" width="200" height="200">
+    <h1 class="display-5 fw-bold">@Model.firstName @Model.lastName</h1>
+     </div>
+
+                      <div class="bg-light p-4 d-flex justify-content-end text-center">
+                        <ul class="list-inline mb-0"> 
+
+                         <li class="list-inline-item">
+                          <h5 class="font-weight-bold mb-0 d-block">@Model.charisma</h5>
+                            <small class="text-muted"> 
+                              <i class="fas fa-image mr-1"></i>Charisma</small>
+                          </li>
+
+                          <li class="list-inline-item"> 
+                            <h5 class="font-weight-bold mb-0 d-block">@Model.dexterity</h5>
+                              <small class="text-muted"> 
+                                <i class="fas fa-user mr-1"></i>Dexterity</small> 
+                            </li>
+                            
+                         <li class="list-inline-item"> 
+                            <h5 class="font-weight-bold mb-0 d-block">@Model.wisdom</h5>
+                              <small class="text-muted"> 
+                                <i class="fas fa-user mr-1"></i>Wisdom</small> 
+                            </li>
+                             <li class="list-inline-item"> 
+                            <h5 class="font-weight-bold mb-0 d-block">@Model.strength</h5>
+                              <small class="text-muted"> 
+                                <i class="fas fa-user mr-1"></i>Strength</small> 
+                            </li>
+                             <li class="list-inline-item"> 
+                            <h5 class="font-weight-bold mb-0 d-block">@Model.intellect</h5>
+                              <small class="text-muted"> 
+                                <i class="fas fa-user mr-1"></i>Intellect</small> 
+                            </li>
+                        </ul></div> 
+
+                                 <div class="px-4 py-3">
+                                     <h5 class="mb-0">About</h5> <div class="p-4 rounded shadow-sm bg-light"> 
+                                         <p class="font-italic mb-0">@Model.bio</p> 
+                                        
+                                         </div></div> </div> </div> 
+</div>
+
+</body>
+</html>
+
