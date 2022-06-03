@@ -34,6 +34,12 @@ namespace CW_FrontEnd_rebuilt.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+        [HttpPost("supdate")]
+        public IActionResult SEdit([FromForm] User value)
+        {
+            controller.Update(value);
+            return RedirectToAction("Index", "Home");
+        }
 #nullable enable
         public User? GetCurrent(int id)
         {
@@ -47,7 +53,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 user.role = "user";
                 controller.Add(user);
             }
-            return NotFound("Registration Succesful"); ;
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost("log")]
@@ -64,7 +70,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 HttpContext.Session.SetString("Id", user.userId.ToString());
                 HttpContext.Session.SetString("Name", user.userName);
                 HttpContext.Session.SetString("Role", user.role);
-                return NotFound("User found");
+                return RedirectToAction("Redirection", "Login");
 
             }
             return NotFound("User not found");

@@ -23,6 +23,9 @@
                 <div class="px-4 py-5 my-5 text-center">
     <img class="rounded-circle" src=@Model.imageLink alt="" width="200" height="200">
     <h1 class="display-5 fw-bold">@Model.userName</h1>
+    <button type="button" class="btn btn-primary btn-sm">
+    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Edit">Edit</a>
+</button>
      </div>
                                  <div class="px-4 py-3">
                                      <h5 class="mb-0">About</h5> <div class="p-4 rounded shadow-sm bg-light"> 
@@ -43,11 +46,11 @@
                   
                   
                   <button type="button" class="btn btn-primary btn-sm">
-                  <a href="https://localhost:44342/characters/view/@item.characterId" class="nav-link text-dark" asp-area="" asp-controller="Characters" asp-action="EditCharacter">View</a>
+                  <a href="https://localhost:44355/characters/view/@item.characterId" class="nav-link text-dark" >View</a>
                   </button>
 
 <button type="button" class="btn btn-primary btn-sm">
-    <a href="https://localhost:44342/characters/remove/@item.characterId" class="nav-link text-dark" asp-area="" asp-controller="Characters" asp-action="RemoveCharacter">Delete</a>
+    <a href="https://localhost:44355/characters/remove/@item.characterId" class="nav-link text-dark" >Delete</a>
 </button>
              </li>
         }

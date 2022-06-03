@@ -11,6 +11,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
     {
         private string SearchRandomImage(string type, string category) => @$"https://api.waifu.pics/{type}/{category}";
         private string SearchInBulk(string type, string category) => @$"https://api.waifu.pics/many/{type}/{category}";
+        private string GetQuote() => @$"https://animechan.vercel.app/api/random";
 
         private readonly HttpConfig httpWorker;
 
@@ -19,16 +20,20 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             httpWorker = new HttpConfig();
         }
 
-        public string getImageByCategory(string type, string category)
+        public string[] getImageByCategory(string type, string category)
         {
-
             try
             {
+                string[] array = new string[2];
                 string url = SearchRandomImage(type, category);
                 string response = httpWorker.GetJsonResponse(url).Result;
-                string result = ParseSearchingModel(response);
+                array[0] = ParseSearchingModel(response);
 
-                return result;
+                url = GetQuote();
+                response = httpWorker.GetJsonResponse(url).Result;
+                array[1] = ParseSearchingModel(response);
+
+                return array;
 
             }
             catch
@@ -43,7 +48,27 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             string response = httpWorker.GetJsonResponse(url).Result;
             return ParseSearchingModels(response);
         }
+        //get single quote
+#nullable enable
+        private string? ParseQuoteModel(string json)
+        {
+            string searchingModel = null;
+            JObject images = JObject.Parse(json);
 
+            var imagesArray =
+                from c in images["url"]
+                select c;
+
+            foreach (var item in imagesArray)
+            {
+                searchingModel = (string)item["quote"];
+            }
+
+            if (searchingModel == null)
+                return null;
+
+            return searchingModel;
+        }
 
         //get single image
 #nullable enable

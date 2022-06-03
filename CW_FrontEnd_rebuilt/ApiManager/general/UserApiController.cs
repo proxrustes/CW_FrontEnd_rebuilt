@@ -57,7 +57,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 
             using var client = new HttpClient();
 
-            var response = await client.PutAsync(GeneralURL(), data);
+            var response = await client.PostAsync(GetURL(value.userId), data);
 
             var result = await response.Content.ReadAsStringAsync();
             Debug.WriteLine(result);

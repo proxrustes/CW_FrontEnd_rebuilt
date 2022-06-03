@@ -50,7 +50,8 @@ namespace CW_FrontEnd_rebuilt.Controllers
 #nullable enable
         public User? GetCurrent(int id)
         {
-            return null;
+            User user = controller.Get(id);
+            return user;
         }
     }
 }

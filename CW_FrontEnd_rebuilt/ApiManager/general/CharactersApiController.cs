@@ -8,6 +8,7 @@ using System.Text;
 
 namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
+   
     public class CharactersApiController : IApiController<Character>
     {
         private string GetAllURL() => @$"https://localhost:44342/api/characters";
@@ -52,7 +53,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 
             using var client = new HttpClient();
 
-            var response = await client.PostAsync(GeneralURL(), data);
+            var response = await client.PostAsync(GetURL(value.characterId), data);
 
             var result = await response.Content.ReadAsStringAsync();
             Debug.WriteLine(result);
@@ -64,7 +65,6 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             var response = await client.DeleteAsync(GetURL(id));
 
             var result = await response.Content.ReadAsStringAsync();
-            Debug.WriteLine(result);
         }
 #nullable enable
         private Character? ParseCharacterModel(string json)

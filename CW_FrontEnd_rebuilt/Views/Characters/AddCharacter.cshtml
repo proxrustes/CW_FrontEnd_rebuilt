@@ -15,9 +15,9 @@
 <body class="text-center" data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed="">
     
 <main class="form-signin w-100 m-auto">
-  <form asp-controller="CharactersApi" asp-action="Add">
+  <form action="https://localhost:44355/characters/sadd" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <h1 class="h3 mb-3 fw-normal">Sreate</h1>
+    <h1 class="h3 mb-3 fw-normal">Create</h1>
 
     <div class="form-floating">
       <label asp-for="firstName" for="floatingInput"></label>
@@ -71,6 +71,7 @@
       <label asp-for="userId" for="floatingPassword"></label>
       <input asp-for="userId" name="UserId" type="number" readonly="readonly" class="form-control" value="@Model.userId" >
     </div>
+     
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>
     <p class="mt-5 mb-3 text-muted">©2022</p>
