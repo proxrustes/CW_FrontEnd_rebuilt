@@ -39,11 +39,13 @@ namespace CW_FrontEnd_rebuilt.Controllers
         [HttpGet("update/{id}")]
         public IActionResult EditCharacter(int id)
         {
-            if (int.Parse(HttpContext.Session.GetString("Id")) == id)
+            if (HttpContext.Session.GetString("Id") != null )
             {
-
                 Character model = controller.Get(id);
+                if (model.userId == int.Parse(HttpContext.Session.GetString("Id")))
+                {
                 return View(model);
+                }
             }
             return RedirectToAction("Index", "Home");
         }
@@ -54,6 +56,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
            controller.Update(value);
             return RedirectToAction("BrowseCharacters", "Characters");
         }
+
         [HttpPost("sadd")]
         public IActionResult SAddCharacter([FromForm] Character value)
         {
@@ -67,10 +70,11 @@ namespace CW_FrontEnd_rebuilt.Controllers
             Character model = controller.Get(id);
             return View(model);
         }
+
         [HttpGet("remove/{id}")]
         public IActionResult Remove(int id)
         {
-            if (int.Parse(HttpContext.Session.GetString("Id")) == id)
+            if (HttpContext.Session.GetString("Id") != null && int.Parse(HttpContext.Session.GetString("Id")) == id)
             {
                 controller.Delete(id);
                 return RedirectToAction("Redirection", "Login");

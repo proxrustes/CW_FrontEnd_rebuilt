@@ -50,7 +50,6 @@ namespace CW_FrontEnd_rebuilt
 
             app.UseStaticFiles();
 
-            //app.UseHttpsRedirection();
             app.UseSession();
 
             app.UseRouting();
@@ -58,8 +57,10 @@ namespace CW_FrontEnd_rebuilt
             app.UseCors();
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllers();
                 endpoints.MapRazorPages();
+
             });
         }
     }

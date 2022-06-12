@@ -11,9 +11,9 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
    
     public class CharactersApiController : IApiController<Character>
     {
-        private string GetAllURL() => @$"https://localhost:44342/api/characters";
-        private string GetURL(int id) => @$"https://localhost:44342/api/characters/{id}";
-        private string GeneralURL() => @$"https://localhost:44342/api/characters";
+        private string GetAllURL() => @$"https://animedndwaifuapi.azurewebsites.net/api/characters";
+        private string GetURL(int id) => @$"https://animedndwaifuapi.azurewebsites.net/api/characters/{id}";
+        private string GeneralURL() => @$"https://animedndwaifuapi.azurewebsites.net/api/characters";
 
         private readonly HttpClient client;
 

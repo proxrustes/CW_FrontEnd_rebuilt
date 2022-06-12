@@ -1,18 +1,28 @@
-﻿@Model 
+﻿@Model string[];
 @{
     ViewData["Title"] = "Images";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-<body>
+     @if (Model != null)
+        {
+
+
+            <div class="row py-5 px-4">
+                <div class="col-md-5 mx-auto"> 
+                    <div class="bg-white shadow rounded overflow-hidden"> 
+                        <div class="px-4 py-5 my-5 text-center">
+                            <img class="rounded-circle" src=@Model[0] alt="" width="500" height="500">
+                            <h1 class="display-5 fw-bold">@Model[0]</h1>
+                        </div>
+
+                        <div class="px-4 py-3">
+                            <div class="p-4 rounded shadow-sm bg-light"> 
+                                <p class="font-italic mb-0">@Model[1]</p> 
+
+                            </div></div> </div> </div> 
+            </div>
+        }
+
 
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -26,9 +36,20 @@
         </button>
         <div class="collapse" id="home-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
+            <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/waifu" class="link-dark rounded">waifu</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/neko" class="link-dark rounded">neko</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/megumin" class="link-dark rounded">megumin</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/cry" class="link-dark rounded">cry</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/awoo" class="link-dark rounded">awoo</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/lick" class="link-dark rounded">lick</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/bonk" class="link-dark rounded">bonk</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/yeet" class="link-dark rounded">yeet</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/highfive" class="link-dark rounded">highfive</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/nom" class="link-dark rounded">nom</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/glomp" class="link-dark rounded">glomp</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/happy" class="link-dark rounded">happy</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/poke" class="link-dark rounded">poke</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/sfw/cringe" class="link-dark rounded">cringe</a></li>
           </ul>
         </div>
       </li>
@@ -38,19 +59,12 @@
         </button>
         <div class="collapse" id="dashboard-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/waifu" class="link-dark rounded">waifu</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/neko" class="link-dark rounded">neko</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/trap" class="link-dark rounded">trap</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/blowjob" class="link-dark rounded">blowjob</a></li>
           </ul>
         </div>
       </li>
-      
-        
     </ul>
-  </div>
-
-
-</body>
-</html>
-
+       

@@ -27,11 +27,13 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
                 string[] array = new string[2];
                 string url = SearchRandomImage(type, category);
                 string response = httpWorker.GetJsonResponse(url).Result;
-                array[0] = ParseSearchingModel(response);
+                string image_url = ParseSearchingModel(response);
+                array[0] = image_url;
 
                 url = GetQuote();
                 response = httpWorker.GetJsonResponse(url).Result;
-                array[1] = ParseSearchingModel(response);
+                string quote = ParseQuoteModel(response);
+                array[1] = quote;
 
                 return array;
 
@@ -55,17 +57,8 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             string searchingModel = null;
             JObject images = JObject.Parse(json);
 
-            var imagesArray =
-                from c in images["url"]
-                select c;
+            searchingModel = images["quote"].ToString();
 
-            foreach (var item in imagesArray)
-            {
-                searchingModel = (string)item["quote"];
-            }
-
-            if (searchingModel == null)
-                return null;
 
             return searchingModel;
         }
@@ -77,17 +70,8 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             string searchingModel = null;
             JObject images = JObject.Parse(json);
 
-            var imagesArray =
-                from c in images["url"]
-                select c;
-
-            foreach (var item in imagesArray)
-            {
-                searchingModel = (string)item["url"];
-            }
-
-            if (searchingModel == null)
-                return null;
+            string parsed = images["url"].ToString();
+            searchingModel = parsed;
 
             return searchingModel;
         }

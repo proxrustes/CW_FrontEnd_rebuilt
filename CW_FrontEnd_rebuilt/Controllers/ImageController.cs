@@ -1,4 +1,5 @@
 ﻿using CW_FrontEnd_rebuilt.ApiManager.general;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -20,7 +21,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
         {
             return View();
         }
-        [HttpPost("browse_m/{type}/{category}")]
+        [HttpGet("browse_m/{type}/{category}")]
         public IActionResult BrowseImages(string type, string category)
         {
             List<string> model = controller.getImageByCategoryMany(type, category);
@@ -31,9 +32,13 @@ namespace CW_FrontEnd_rebuilt.Controllers
         {
             return View();
         }
-        [HttpPost("browse/{type}/{category}")]
+        [HttpGet("browse/{type}/{category}")]
         public IActionResult BrowseImage(string type, string category)
         {
+            if (type == "nsfw" && HttpContext.Session.GetString("Role") != "Admin")
+            {
+                return RedirectToAction("Index", "Images");
+            }
             string[] model = controller.getImageByCategory(type, category);
             return View(model);
         }

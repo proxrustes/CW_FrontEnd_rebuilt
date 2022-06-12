@@ -10,9 +10,9 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
     public class UserApiController : IApiController<User>
     {
-        private string GetAllURL() => @$"https://localhost:44342/api/users";
-        private string GetURL(int id) => @$"https://localhost:44342/api/users/{id}";
-        private string GeneralURL() => @$"https://localhost:44342/api/users";
+        private string GetAllURL() => @$"https://animedndwaifuapi.azurewebsites.net//api/users";
+        private string GetURL(int id) => @$"https://animedndwaifuapi.azurewebsites.net//api/users/{id}";
+        private string GeneralURL() => @$"https://animedndwaifuapi.azurewebsites.net//api/users";
 
 
         private readonly HttpClient client;

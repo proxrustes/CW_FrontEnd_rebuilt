@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CW_FrontEnd_rebuilt.Controllers
 {
-    [Route("home")]
+    [Route("")]
     [ApiController]
     public class HomeController : Controller
     {
@@ -18,10 +18,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
         {
             return View();
         }
-        public IActionResult ProfilePage()
-        {
-            return View();
-        }
+      
 
         public IActionResult Privacy()
         {
