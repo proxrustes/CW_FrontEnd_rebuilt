@@ -3,7 +3,9 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 
 namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
@@ -14,6 +16,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
         private string GetQuote() => @$"https://animechan.vercel.app/api/random";
 
         private readonly HttpConfig httpWorker;
+        private static readonly HttpClient client = new HttpClient();
 
         public ImageApiController()
         {
@@ -43,13 +46,6 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
                 throw new Exception($"Search is not valid: {category}");
             }
         }
-        public List<string> getImageByCategoryMany(string type, string category)
-        {
-
-            string url = SearchInBulk(type, category);
-            string response = httpWorker.GetJsonResponse(url).Result;
-            return ParseSearchingModels(response);
-        }
         //get single quote
 #nullable enable
         private string? ParseQuoteModel(string json)
@@ -76,17 +72,17 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             return searchingModel;
         }
         //get 30 image links
-#nullable enable
-        private List<string>? ParseSearchingModels(string json)
-        {
-            JsonObject obj = JsonNode.Parse(json).AsObject();
-            JsonArray jsonArray = (JsonArray)obj["files"];
-            string jsonString = jsonArray.ToString();
-            List<string> listS = JsonConvert.DeserializeObject<List<string>>(jsonString);
+//#nullable enable
+//        private List<string>? ParseSearchingModels(string json)
+//        {
+//            JsonObject obj = JsonNode.Parse(json).AsObject();
+//            JsonArray jsonArray = (JsonArray)obj["files"];
+//            string jsonString = jsonArray.ToString();
+//            List<string> listS = JsonConvert.DeserializeObject<List<string>>(jsonString);
 
 
-            return listS;
-        }
+//            return listS;
+//        }
     }
 }
 

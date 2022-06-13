@@ -1,0 +1,58 @@
+﻿@model string[]
+@{
+    ViewData["Title"] = "Images";
+}
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+         <aside class="bd-sidebar">
+       <nav id="sidebar">
+         <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-5 fw-semibold">Collapsible</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <h4 class="display-8">NSFW</h4>
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/waifu" class="link-dark rounded">waifu</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/neko" class="link-dark rounded">neko</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/trap" class="link-dark rounded">trap</a></li>
+             <li><a href="https://adoptdndwaifus.azurewebsites.net/images/browse/nsfw/blowjob" class="link-dark rounded">blowjob</a></li>
+        </ul>
+         </li>
+      
+        
+    </ul>
+  </div>
+
+    </nav>
+    
+
+    </aside>
+    </div>
+    <div class="col-8">
+          @if (Model != null)
+        {
+
+
+            <div class="row py-5 px-4">
+                <div class="col-md-10 mx-auto"> 
+                    <div class="bg-white shadow rounded overflow-hidden"> 
+                        <div class="px-4 py-5 my-5 text-center">
+                            <img class="rounded-circle" src=@Model[0] alt="" width="350" height="350">
+                            <h4 class="display-8">@Model[0]</h4>
+                        </div>
+
+                        <div class="px-4 py-3">
+                            <div class="p-4 rounded shadow-sm bg-light"> 
+                                <p class="font-italic mb-0">@Model[1]</p> 
+
+                            </div></div> </div> </div> 
+            </div>
+        }
+    </div>
+  </div>
+</div>
