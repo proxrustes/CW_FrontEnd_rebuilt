@@ -10,7 +10,6 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
     public class CharactersApiController : IApiController<Character>
     {
-        private string GetAllURL() => @$"https://animedndwaifuapi.azurewebsites.net/api/characters";
         private string GetURL(int id) => @$"https://animedndwaifuapi.azurewebsites.net/api/characters/{id}";
         private string GeneralURL() => @$"https://animedndwaifuapi.azurewebsites.net/api/characters";
 
@@ -23,7 +22,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 #nullable enable
         public List<Character>? GetAll()
         {
-            string url = GetAllURL();
+            string url = GeneralURL();
             string response = client.GetStringAsync(url).Result;
             return ParseCharacterModels(response);
         }

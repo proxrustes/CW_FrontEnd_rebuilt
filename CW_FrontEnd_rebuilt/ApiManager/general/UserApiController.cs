@@ -10,7 +10,6 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
     public class UserApiController : IApiController<User>
     {
-        private string GetAllURL() => @$"https://animedndwaifuapi.azurewebsites.net//api/users";
         private string GetURL(int id) => @$"https://animedndwaifuapi.azurewebsites.net//api/users/{id}";
         private string GeneralURL() => @$"https://animedndwaifuapi.azurewebsites.net//api/users";
 
@@ -25,7 +24,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 #nullable enable
         public List<User>? GetAll()
         {
-            string url = GetAllURL();
+            string url = GeneralURL();
             string response = client.GetStringAsync(url).Result;
             return ParseUserModels(response);
         }
