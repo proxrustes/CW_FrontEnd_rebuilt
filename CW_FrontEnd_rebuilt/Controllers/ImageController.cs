@@ -17,18 +17,6 @@ namespace CW_FrontEnd_rebuilt.Controllers
             return View();
         }
 
-        //[HttpGet("browse_m")]
-        //public IActionResult BrowseImages()
-        //{
-        //    return View();
-        //}
-        //[HttpGet("browse_m/{type}/{category}")]
-        //public IActionResult BrowseImages(string type, string category)
-        //{
-        //    List<string> model = controller.getImageByCategoryMany(type, category);
-
-        //    return View(model);
-        //}
 
         [HttpGet("browse_s")]
         public IActionResult BrowseImage()

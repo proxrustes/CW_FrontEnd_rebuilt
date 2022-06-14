@@ -5,19 +5,17 @@
 @{
     ViewData["Title"] = "Login Page";
 }
-
+<div class="grid-container">
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
-            <img class="rounded-circle" src=@item.imageLink alt="" width="200" height="200">                
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.userName)<br/>                    
-        </td>
-        <td>                 
-            @Html.DisplayFor(modelItem => item.role)<br/>
-        </td>
-
-    </tr>
+   <div class="grid-item"> 
+       <img class="rounded-circle" src=@item.imageLink alt="" width="200" height="200">                
+        </div>
+    <div class="grid-item"> @Html.DisplayFor(modelItem => item.userName) @Html.DisplayFor(modelItem => item.role)<br/>   </div>
+    <div class="grid-item"><a href="https://adoptdndwaifus.azurewebsites.net/users/profile/@item.userId" class="button" align="center"> view user</a>
+        
+  </div>
+    
 }
+</div>
+

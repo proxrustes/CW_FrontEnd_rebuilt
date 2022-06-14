@@ -8,6 +8,7 @@ using System.Linq;
 namespace CW_FrontEnd_rebuilt.Controllers
 {
     [Route("[controller]")]
+    [ApiController]
     public class LoginController : Controller
     {
         private readonly IApiController<User> controller;

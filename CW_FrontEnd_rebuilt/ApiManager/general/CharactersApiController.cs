@@ -8,7 +8,6 @@ using System.Text;
 
 namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
-   
     public class CharactersApiController : IApiController<Character>
     {
         private string GetAllURL() => @$"https://animedndwaifuapi.azurewebsites.net/api/characters";

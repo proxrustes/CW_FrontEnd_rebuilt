@@ -7,6 +7,8 @@ using System.Linq;
 
 namespace CW_FrontEnd_rebuilt.Controllers
 {
+    [Route("users")]
+    [ApiController]
     public class UserController : Controller
     {
         private readonly IApiController<User> controller;
@@ -15,7 +17,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
             controller = _controller;
         }
 
-        [HttpGet("user/{id}")]
+        [HttpGet("profile/{id}")]
         public IActionResult ProfilePage(int id)
         {
             User model = GetCurrent(id);

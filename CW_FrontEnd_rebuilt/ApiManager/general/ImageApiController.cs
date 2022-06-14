@@ -15,12 +15,11 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
         private string SearchInBulk(string type, string category) => @$"https://api.waifu.pics/many/{type}/{category}";
         private string GetQuote() => @$"https://animechan.vercel.app/api/random";
 
-        private readonly HttpConfig httpWorker;
         private static readonly HttpClient client = new HttpClient();
 
         public ImageApiController()
         {
-            httpWorker = new HttpConfig();
+            
         }
 
         public string[] getImageByCategory(string type, string category)
@@ -29,12 +28,12 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             {
                 string[] array = new string[2];
                 string url = SearchRandomImage(type, category);
-                string response = httpWorker.GetJsonResponse(url).Result;
+                string response = client.GetStringAsync(url).Result;
                 string image_url = ParseSearchingModel(response);
                 array[0] = image_url;
 
                 url = GetQuote();
-                response = httpWorker.GetJsonResponse(url).Result;
+                response = client.GetStringAsync(url).Result;
                 string quote = ParseQuoteModel(response);
                 array[1] = quote;
 
@@ -71,18 +70,6 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 
             return searchingModel;
         }
-        //get 30 image links
-//#nullable enable
-//        private List<string>? ParseSearchingModels(string json)
-//        {
-//            JsonObject obj = JsonNode.Parse(json).AsObject();
-//            JsonArray jsonArray = (JsonArray)obj["files"];
-//            string jsonString = jsonArray.ToString();
-//            List<string> listS = JsonConvert.DeserializeObject<List<string>>(jsonString);
-
-
-//            return listS;
-//        }
     }
 }
 
