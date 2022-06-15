@@ -31,9 +31,10 @@ namespace CW_FrontEnd_rebuilt.Controllers
             {
 
                 List<User> users = controller.GetAll();
-                return View("BrowseUsers", users);
+                User[] users_array = users.ToArray();
+                return View("BrowseUsers", users_array);
             }
-            return RedirectToAction("Index", "Home");
+            return View("DisplayMessage", "failed to browse users. please log in");
         }
         [HttpGet("edit")]
         public IActionResult Edit()
@@ -43,7 +44,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 User model = GetCurrent(int.Parse(HttpContext.Session.GetString("Id")));
                 return View("EditProfile", model);
             }
-            return RedirectToAction("Index", "Home");
+            return View("DisplayMessage", "failed to edit user profile. please log in");
         }
         [HttpPost("supdate")]
         public IActionResult SEdit([FromForm] User value)
@@ -88,14 +89,14 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 return RedirectToAction("Redirection", "Login");
 
             }
-            return NotFound("User not found");
+            return View("DisplayMessage", "user not found");
         }
 
         [HttpGet("logOut")]
         public IActionResult LogOut()
         {
             HttpContext.Session.Clear();
-            return NotFound("LogOut Succesful");
+            return View("DisplayMessage", "logout succesful");
         }
         private User Authenticate(UserLogin userLogin)
         {

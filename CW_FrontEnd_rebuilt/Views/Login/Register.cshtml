@@ -10,24 +10,24 @@
 
     <div class="form-floating">
       <label asp-for="userName" for="floatingInput"></label>
-      <input asp-for="userName"  class="form-control"value="@Model.userName" placeholder="name@example.com">
+      <input asp-for="userName"  class="form-control"value="@Model.userName" placeholder="name@example.com" required>
       <span asp-validation-for="userName" class="text-danger"></span>
     </div>
     
     <div class="form-floating">
       <label asp-for="bio" for="floatingInput"></label>
-      <input asp-for="bio"  class="form-control"value="@Model.bio" placeholder="bio">
+      <input asp-for="bio"  class="form-control"value="@Model.bio" placeholder="bio" required>
       <span asp-validation-for="bio" class="text-danger"></span>
     </div>
 
     <div class="form-floating">
       <label asp-for="password" for="floatingPassword"></label>
-      <input asp-for="password" name="Password" type="text" class="form-control" value="@Model.password" placeholder="Password">
+      <input asp-for="password" name="Password" type="text" class="form-control" value="@Model.password" placeholder="Password" required>
       <span asp-validation-for="password" class="text-danger"></span>
     </div>
     <div class="form-floating">
       <label asp-for="imageLink" for="floatingPassword"></label>
-      <input asp-for="imageLink" name="ImageLink" type="text" class="form-control" value="@Model.imageLink" placeholder="Link">
+      <input asp-for="imageLink" name="ImageLink" type="text" class="form-control" value="@Model.imageLink" placeholder="Link" required>
       <span asp-validation-for="imageLink" class="text-danger"></span>
     
 

@@ -21,7 +21,8 @@ namespace CW_FrontEnd_rebuilt.Controllers
         public IActionResult BrowseCharacters()
         {
             List<Character> model = controller.GetAll();
-            return View(model);
+            Character[] model_array = model.ToArray();
+            return View(model_array);
         }
 
         [HttpGet("add")]
@@ -33,7 +34,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
             model.userId = int.Parse(HttpContext.Session.GetString("Id"));
             return View(model);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("DisplayMessage", "Display", "failed to add character");
         }
 
         [HttpGet("update/{id}")]
@@ -47,7 +48,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 return View(model);
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return View("DisplayMessage", "failed to edit character");
         }
 
         [HttpPost("supdate")]
@@ -79,7 +80,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 controller.Delete(id);
                 return RedirectToAction("Redirection", "Login");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("DisplayMessage", "Display", "failed to delete character. please login");
            
         }
     }

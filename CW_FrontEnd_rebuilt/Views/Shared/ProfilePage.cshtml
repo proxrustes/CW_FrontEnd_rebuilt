@@ -1,59 +1,95 @@
-﻿@model CW_FrontEnd_rebuilt.ObjectModel.User
+﻿@using CW_FrontEnd_rebuilt.ObjectModel
+@model CW_FrontEnd_rebuilt.ObjectModel.User
 
 @{
     ViewData["Title"] = "Profile Page";
 }
-
-
-    <div class="row py-5 px-4">
-        <div class="col-md-5 mx-auto"> 
-            <div class="bg-white shadow rounded overflow-hidden"> 
-
-                <div class="px-4 py-5 my-5 text-center">
-    <img class="rounded-circle" src=@Model.imageLink alt="" width="200" height="200">
-    <h1 class="display-5 fw-bold">@Model.userName</h1>
-    <button type="button" class="btn btn-primary btn-sm">
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+    <div class="col-sm">
+      
+    </div>
+    <div class="col-sm">
+       <div class="card shadow-sm">
+                <img src=@Model.imageLink class="rounded float-start" height="100%" alt="">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                  <h2>@Model.userName</h2>
+              <p class="card-text">@Model.bio</p>
+              </div>
+              <div class="btn-group">
+                   <button type="button" class="btn btn-light btn-sm">
     <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Edit">Edit</a>
 </button>
-     </div>
-                                 <div class="px-4 py-3">
-                                     <h5 class="mb-0">About</h5> <div class="p-4 rounded shadow-sm bg-light"> 
-                                         <p class="font-italic mb-0">@Model.bio</p> 
-                                        
-                                         </div></div>
-                                         
-                                      <center>
+ <button type="button" class="btn btn-light btn-sm">
+    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="LogOut">Logout</a>
+</button>
+                </div>
+               
+            </div>
+          </div>
+    </div>
+    <div class="col-sm">
+     
+    </div>
+  </div>
+               
+            
+        </div>
+      </div>
+   
   <h1>Your Characters: </h1>
   <ul class="list-group list-group-flush">
+      
   @if (Model.characters!=null)
   {
-        foreach (var item in Model.characters)
+     Character[] array = Model.characters.ToArray();
+                        for(int i = 0; i<array.Length/3+1; i++)
+    {
+        int num_ident;
+        if(array.Length/3==i)
         {
-             <li class="list-group-item">
-                  <img class="rounded-circle" src=@item.imageLink alt="" width="70" height="70">
-                  @Html.DisplayFor(modelItem => item.firstName) @Html.DisplayFor(modelItem => item.lastName)
-                  
-                  
-                  <button type="button" class="btn btn-primary btn-sm">
-                  <a href="https://adoptdndwaifus.azurewebsites.net/characters/view/@item.characterId" class="nav-link text-dark" >View</a>
-                  </button>
-
-<button type="button" class="btn btn-primary btn-sm">
-    <a href="https://adoptdndwaifus.azurewebsites.net/characters/remove/@item.characterId" class="nav-link text-dark" >Delete</a>
-</button>
-             </li>
+        num_ident = array.Length%3;
         }
+        else{ num_ident = 3; }
+        
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        @for(int y=0; y<num_ident; y++)
+            {
+                <div class="col">
+          <div class="card shadow-sm">
+                <img src=@array[3*i+y].imageLink class="rounded float-start" alt="...">
+            <div class="card-body">
+              <p class="card-text">@array[3*i+y].bio</p>
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+              <div class="btn-group">
+                   <button type="button" class="btn btn-light btn-sm">
+                  <a href="https://adoptdndwaifus.azurewebsites.net/characters/view/@array[3*i+y].characterId" class="nav-link text-dark" >@array[3*i+y].firstName @array[3*i+y].lastName</a>
+                  </button>
+                </div>
+               
+            </div>
+          </div>
+        </div>
+            }
+            </div>
+        </div>
+      </div>
+  
+    }
    }
 
    else
    {
-       <h1>empty. create some:</h1>
+       <h6>no characters. create some:</h6>
    }
 </ul>
-    <button type="button" class="btn btn-primary btn-sm">
+    <button type="button" class="btn btn-light btn-sm">
     <a class="nav-link text-dark" asp-area="" asp-controller="Characters" asp-action="AddCharacter">Add</a>
 </button>
-     </center>
 
-                                     </div> </div> 
-</div>
+  

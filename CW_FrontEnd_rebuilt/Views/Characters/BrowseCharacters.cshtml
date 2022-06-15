@@ -1,22 +1,58 @@
 ﻿@using CW_FrontEnd_rebuilt.ObjectModel
 
-@model List<Character>
+@model Character[]
 @{
     ViewData["Title"] = "Browse Page";
 }
 
 
-<ul class="list-group list-group-flush">
-    
-@foreach (var item in Model)
-{
-    <li class="list-group-item">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">BROWSE WAIFUS</h1>
+        <p class="lead text-muted">user library</p>
+      </div>
+    </div>
+  </section>
 
-        <img class="rounded-circle" src=@item.imageLink alt="" width="70" height="70" align="left"> 
-         <a href="https://adoptdndwaifus.azurewebsites.net/characters/view/@item.characterId" class="button" align="center">@item.firstName @item.lastName </a>
-    </li>
-    
-}
 
-</ul>
+   
+
+@for(int i = 0; i<Model.Length/3+1; i++)
+    {
+        int num_ident;
+        if(Model.Length/3==i)
+        {
+        num_ident = Model.Length%3;
+        }
+        else{ num_ident = 3; }
+        
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        @for(int y=0; y<num_ident; y++)
+            {
+                <div class="col">
+          <div class="card shadow-sm">
+                <img src=@Model[3*i+y].imageLink class="rounded float-start" alt="...">
+            <div class="card-body">
+              <p class="card-text">@Model[3*i+y].bio</p>
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+              <div class="btn-group">
+                   <button type="button" class="btn btn-light btn-sm">
+                  <a href="https://adoptdndwaifus.azurewebsites.net/characters/view/@Model[3*i+y].characterId" class="nav-link text-dark" >@Model[3*i+y].firstName @Model[3*i+y].lastName</a>
+                  </button>
+                </div>
+               
+            </div>
+          </div>
+        </div>
+            }
+            </div>
+        </div>
+      </div>
+  
+    }
+
 

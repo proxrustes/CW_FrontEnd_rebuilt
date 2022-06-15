@@ -3,19 +3,23 @@
     ViewData["Title"] = "Login Page";
 }
 
+
 <maisn class="form-signin w-100 m-auto">
   <form asp-controller="User" asp-action="Login">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div asp-validation-summary="ModelOnly" class="text-danger" class="needs-validation" novalidate>
+
+    </div>
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
       <label asp-for="username" for="floatingInput"></label>
-      <input asp-for="username"  class="form-control" placeholder="name@example.com">
+      <input asp-for="username" type="text" class="form-control" placeholder="username" required>
       <span asp-validation-for="username" class="text-danger"></span>
     </div>
+
     <div class="form-floating">
       <label asp-for="password" for="floatingPassword"></label>
-      <input asp-for="password" name="password" type="text" class="form-control" value="@Model.password" placeholder="password">
+      <input asp-for="password" name="password" type="password" class="form-control" value="@Model.password" placeholder="password" required>
       <span asp-validation-for="password" class="text-danger"></span>
     </div>
 
