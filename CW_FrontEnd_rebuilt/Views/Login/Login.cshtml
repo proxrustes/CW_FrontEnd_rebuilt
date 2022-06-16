@@ -3,22 +3,35 @@
     ViewData["Title"] = "Login Page";
 }
 
-
-<maisn class="form-signin w-100 m-auto">
+ <div class="container">
+        <div class="row"> 
+   <div class="col-sm">
+      
+    </div>
+       <div class="col-sm">
+      
+           <main class="form-signin w-100 m-auto">
   <form asp-controller="User" asp-action="Login">
     <div asp-validation-summary="ModelOnly" class="text-danger" class="needs-validation" novalidate>
 
     </div>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+     <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">WELCOME BACK</h1>
+        <p class="lead text-muted">we didn't miss you</p>
+      </div>
+    </div>
+  </section>
 
     <div class="form-floating">
-      <label asp-for="username" for="floatingInput"></label>
+      <h5 class="h5 fw">username</h5>
       <input asp-for="username" type="text" class="form-control" placeholder="username" required>
       <span asp-validation-for="username" class="text-danger"></span>
     </div>
 
     <div class="form-floating">
-      <label asp-for="password" for="floatingPassword"></label>
+      <h5 class="h5 fw">password</h5>
       <input asp-for="password" name="password" type="password" class="form-control" value="@Model.password" placeholder="password" required>
       <span asp-validation-for="password" class="text-danger"></span>
     </div>
@@ -26,5 +39,14 @@
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">©2022</p>
   </form>
-</maisn>
+</main>
+
+    </div>
+    <div class="col-sm">
+      
+    </div>
+    </div>
+    </div>
+     </div>
+
 

@@ -2,67 +2,65 @@
 @{
     ViewData["Title"] = "Edit Character";
 }
-            
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-<body class="text-center" data-new-gr-c-s-check-loaded="14.1060.0" data-gr-ext-installed="">
-    
+
+           <div class="container">
+        <div class="row"> 
+   <div class="col-sm">
+      
+    </div>
+       <div class="col-sm">  
+
 <main class="form-signin w-100 m-auto">
   <form action="https://adoptdndwaifus.azurewebsites.net/characters/supdate" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <h1 class="h3 mb-3 fw-normal">Create</h1>
+    <h1 class="h3 mb-3 fw-normal">Edit</h1>
 
     <div class="form-floating">
-      <label asp-for="firstName" for="floatingInput"></label>
-      <input asp-for="firstName"  class="form-control"value="@Model.firstName" placeholder="name@example.com">
+      <h5 class="h5 fw">first name</h5>
+      <input asp-for="firstName"  class="form-control"value="@Model.firstName" required>
       <span asp-validation-for="firstName" class="text-danger"></span>
     </div>
     <div class="form-floating">
-      <label asp-for="lastName" for="floatingInput"></label>
-      <input asp-for="lastName"  class="form-control"value="@Model.lastName" placeholder="bio">
+      <h5 class="h5 fw">last name</h5>
+      <input asp-for="lastName"  class="form-control"value="@Model.lastName" required>
       <span asp-validation-for="lastName" class="text-danger"></span>
     </div>
     <div class="form-floating">
-      <label asp-for="bio" for="floatingInput"></label>
-      <input asp-for="bio"  class="form-control"value="@Model.bio" placeholder="bio">
+      <h5 class="h5 fw">bio</h5>
+      <input asp-for="bio"  class="form-control"value="@Model.bio" required>
       <span asp-validation-for="bio" class="text-danger"></span>
     </div>
 
     <div class="form-floating">
-      <label asp-for="race" for="floatingInput"></label>
-      <input asp-for="race"  class="form-control" value="@Model.race" placeholder="Race">
+      <h5 class="h5 fw">race</h5>
+      <input asp-for="race"  class="form-control" value="@Model.race" required>
       <span asp-validation-for="race" class="text-danger"></span>
     </div>
+
     <div class="form-floating">
-      <label asp-for="imageLink" for="floatingInput"></label>
-      <input asp-for="imageLink"  class="form-control" value="@Model.imageLink" placeholder="Race">
+      <<h5 class="h5 fw">image link</h5>
+      <input asp-for="imageLink"  class="form-control" value="@Model.imageLink"required>
       <span asp-validation-for="imageLink" class="text-danger"></span>
     </div>
 
-    <div <label asp-for="strength" for="customRange2" class="form-label">Strength</label>
+    <div> <label asp-for="strength" for="customRange2" class="form-label">Strength</label>
     <input asp-for="strength" class="form-range" min="0" max="10" id="Strength">
      <span asp-validation-for="strength" class="text-danger"></span>
     </div>
-     <div <label asp-for="intellect" for="customRange2" class="form-label">Intellect</label>
+
+     <div> <label asp-for="intellect" for="customRange2" class="form-label">Intellect</label>
     <input asp-for="intellect" class="form-range" min="0" max="10" id="Strength">
     <span asp-validation-for="intellect" class="text-danger"></span>
     </div>
-     <div <label asp-for="charisma" for="customRange2" class="form-label">Charisma</label>
+     <div> <label asp-for="charisma" for="customRange2" class="form-label">Charisma</label>
     <input asp-for="charisma" class="form-range" min="0" max="10" id="Strength">
     <span asp-validation-for="charisma" class="text-danger"></span>
     </div>
-     <div <label asp-for="wisdom" for="customRange2" class="form-label">Wisdom</label>
+     <div> <label asp-for="wisdom" for="customRange2" class="form-label">Wisdom</label>
     <input asp-for="wisdom" class="form-range" min="0" max="10" id="Strength">
     <span asp-validation-for="wisdom" class="text-danger"></span>
     </div>
-     <div <label asp-for="dexterity" for="customRange2" class="form-label">Dexterity</label>
+     <div> <label asp-for="dexterity" for="customRange2" class="form-label">Dexterity</label>
     <input asp-for="dexterity" class="form-range" min="0" max="10" id="Strength">
     <span asp-validation-for="dexterity" class="text-danger"></span>
     </div>
@@ -80,6 +78,12 @@
   </form>
 </main>
 
-</body>
-</html>
+
+    </div>
+    <div class="col-sm">
+      
+    </div>
+    </div>
+    </div>
+     </div>
 

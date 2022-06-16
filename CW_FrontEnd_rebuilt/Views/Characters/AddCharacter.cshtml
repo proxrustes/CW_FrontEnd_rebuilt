@@ -10,28 +10,28 @@
 
     <div class="form-floating">
       <label asp-for="firstName" for="floatingInput"></label>
-      <input asp-for="firstName"  class="form-control"value="@Model.firstName" placeholder="name@example.com">
+      <input asp-for="firstName"  class="form-control"value="@Model.firstName" required>
       <span asp-validation-for="firstName" class="text-danger"></span>
     </div>
     <div class="form-floating">
       <label asp-for="lastName" for="floatingInput"></label>
-      <input asp-for="lastName"  class="form-control"value="@Model.lastName" placeholder="bio">
+      <input asp-for="lastName"  class="form-control"value="@Model.lastName" required>
       <span asp-validation-for="lastName" class="text-danger"></span>
     </div>
     <div class="form-floating">
       <label asp-for="bio" for="floatingInput"></label>
-      <input asp-for="bio"  class="form-control"value="@Model.bio" placeholder="bio">
+      <input asp-for="bio"  class="form-control"value="@Model.bio" required>
       <span asp-validation-for="bio" class="text-danger"></span>
     </div>
 
     <div class="form-floating">
       <label asp-for="race" for="floatingInput"></label>
-      <input asp-for="race"  class="form-control" value="@Model.race" placeholder="Race">
+      <input asp-for="race"  class="form-control" value="@Model.race"required>
       <span asp-validation-for="race" class="text-danger"></span>
     </div>
     <div class="form-floating">
       <label asp-for="imageLink" for="floatingInput"></label>
-      <input asp-for="imageLink"  class="form-control" value="@Model.imageLink" placeholder="Race">
+      <input asp-for="imageLink"  class="form-control" value="@Model.imageLink"required>
       <span asp-validation-for="imageLink" class="text-danger"></span>
     </div>
 

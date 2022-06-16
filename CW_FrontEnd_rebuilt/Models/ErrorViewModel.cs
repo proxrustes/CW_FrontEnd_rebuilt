@@ -6,6 +6,6 @@ namespace CW_FrontEnd_rebuilt.Models
     {
         public string RequestId { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId );
     }
 }

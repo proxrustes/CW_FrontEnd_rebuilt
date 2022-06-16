@@ -2,47 +2,67 @@
 @{
     ViewData["Title"] = "Edit Profile";
 }
+
+ <div class="container">
+        <div class="row"> 
+   <div class="col-sm">
+      
+    </div>
+       <div class="col-sm">
+      
 <main class="form-signin w-100 m-auto">
   <form asp-controller="User" asp-action="SEdit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">MAKE A CHANGE</h1>
+        <p class="lead text-muted">or don't; whatever</p>
+      </div>
+    </div>
+  </section>
 
     <div class="form-floating">
-      <label asp-for="userName" for="floatingInput"></label>
-      <input asp-for="userName"  class="form-control"value="@Model.userName" placeholder=@Model.userName>
+         <h5 class="h5 fw">username</h5>
+      <input asp-for="userName"  class="form-control"value="@Model.userName">
       <span asp-validation-for="userName" class="text-danger"></span>
     </div>
     
     <div class="form-floating">
-      <label asp-for="bio" for="floatingInput"></label>
+         <h5 class="h5 fw">bio</h5>
       <input asp-for="bio" class="form-control"value="@Model.bio" placeholder="@Model.bio>
       <span asp-validation-for="bio" class="text-danger"></span>
     </div>
 
     <div class="form-floating">
-      <label asp-for="password" for="floatingPassword"></label>
-      <input asp-for="password" name="Password" type="text" class="form-control" value="@Model.password" placeholder=@Model.password>
+         <h5 class="h5 fw">password</h5>
+      <input asp-for="password" name="Password" type="text" class="form-control" value="@Model.password">
       <span asp-validation-for="password" class="text-danger"></span>
     </div>
     <div class="form-floating">
-      <label asp-for="imageLink" for="floatingPassword"></label>
-      <input asp-for="imageLink" name="ImageLink" type="text" class="form-control" value="@Model.imageLink" placeholder=@Model.imageLink>
+         <h5 class="h5 fw">image link</h5>
+      <input asp-for="imageLink" name="ImageLink" type="text" class="form-control" value="@Model.imageLink">
       <span asp-validation-for="password" class="text-danger"></span>
     </div>
    <div class="form-floating">
-      <label asp-for="role" for="floatingPassword"></label>
       <input asp-for="role" name="Role" readonly="readonly" type="text" class="form-control" value="@Model.role">
     </div>
     <div class="form-floating">
-      <label asp-for="characters" for="floatingPassword"></label>
       <input asp-for="characters" name="Role" readonly="readonly"  class="form-control" value="@Model.characters">
     </div>
      <div class="form-floating">
-      <label asp-for="userId" for="floatingPassword"></label>
       <input asp-for="userId" name="UserId" type="number" readonly="readonly" class="form-control" value="@Model.userId" >
-      <span asp-validation-for="password" class="text-danger"></span>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">confirm changes</button>
     <p class="mt-5 mb-3 text-muted">©2022</p>
   </form>
 </main>
+
+    </div>
+    <div class="col-sm">
+      
+    </div>
+    </div>
+    </div>
+     </div>

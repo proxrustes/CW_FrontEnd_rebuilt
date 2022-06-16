@@ -11,7 +11,7 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
 {
     public class ImageApiController
     {
-        private string SearchRandomImage(string type, string category) => @$"https://api.waifu.pics/{type}/{category}";
+        private string SearchRandomImage(string type, string category) => @$"https://waifu.pics/api/{type}/{category}";
         private string GetQuote() => @$"https://animechan.vercel.app/api/random";
 
         private static readonly HttpClient client = new HttpClient();

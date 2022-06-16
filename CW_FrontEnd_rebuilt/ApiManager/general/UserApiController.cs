@@ -71,12 +71,14 @@ namespace CW_FrontEnd_rebuilt.ApiManager.general
             var result = await response.Content.ReadAsStringAsync();
             Debug.WriteLine(result);
         }
+
 #nullable enable
         private User? ParseUserModel(string json)
         {
-            User userModel = JsonConvert.DeserializeObject<User>(json); ;
+            User userModel = JsonConvert.DeserializeObject<User>(json);
             return userModel;
         }
+
 #nullable enable
         private List<User>? ParseUserModels(string json)
         {

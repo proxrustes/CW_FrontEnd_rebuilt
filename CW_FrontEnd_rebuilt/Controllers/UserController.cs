@@ -29,7 +29,6 @@ namespace CW_FrontEnd_rebuilt.Controllers
         {
             if (HttpContext.Session.GetString("Role") == "Admin")
             {
-
                 List<User> users = controller.GetAll();
                 User[] users_array = users.ToArray();
                 return View("BrowseUsers", users_array);
@@ -57,6 +56,7 @@ namespace CW_FrontEnd_rebuilt.Controllers
         {
             return controller.Get(id);
         }
+
         [HttpPost("reg")]
         public IActionResult Register([FromForm] User user)
         {
@@ -67,9 +67,24 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 {
                     user.role = "Admin";
                 }
+
                 controller.Add(user);
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (HttpContext.Session.GetString("Id") != null)
+            {
+                if (HttpContext.Session.GetString("Role") == "Admin")
+                {
+                    controller.Delete(id);
+
+                }
+            }
+            return View("DisplayMessage", "deletion succesful");
         }
 
         [HttpPost("log")]
