@@ -47,8 +47,9 @@ namespace CW_FrontEnd_rebuilt.Controllers
                 {
                 return View(model);
                 }
+                return View("DisplayMessage", "failed to delete character that's not yours");
             }
-            return View("DisplayMessage", "failed to edit character");
+            return View("DisplayMessage", "failed to edit character, please log in");
         }
 
         [HttpPost("supdate")]
@@ -75,12 +76,17 @@ namespace CW_FrontEnd_rebuilt.Controllers
         [HttpGet("remove/{id}")]
         public IActionResult Remove(int id)
         {
-            if (HttpContext.Session.GetString("Id") != null && int.Parse(HttpContext.Session.GetString("Id")) == id)
+            if (HttpContext.Session.GetString("Id") != null)
             {
-                controller.Delete(id);
-                return RedirectToAction("Redirection", "Login");
+                Character model = controller.Get(id);
+                if (model.userId == int.Parse(HttpContext.Session.GetString("Id")))
+                {
+                    controller.Delete(id);
+                    return RedirectToAction("Redirection", "Login");
+                }
+                return View("DisplayMessage", "failed to delete character that's not yours");
             }
-            return RedirectToAction("DisplayMessage", "Display", "failed to delete character. please login");
+            return View("DisplayMessage", "failed to delete character. please login");
            
         }
     }
